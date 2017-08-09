@@ -1,0 +1,20 @@
+<h1> Create a Book </h1>
+
+<form action="/books" method="POST">
+  <input type="text" name="book[title]" placeholder="Enter a Title..."/>
+  <input type="text" name="book[snippet]" placeholder="Enter a Snippet..."/>
+  <p>
+    Pick an existing author
+    <select name="book[author_id]">
+      <option value >Please Select an Author..</option>
+      <% Author.all.each do |author| %>
+        <option value="<%= author.id %>"><%= author.full_name %></option>
+      <% end %>
+    </select>
+  </p>
+  <p>
+    Or create a new author by name
+    <input type="text" name="book[author_name]" />
+  </p>
+  <input type="submit" value="Create a Book"/>
+</form>
